@@ -1,0 +1,30 @@
+services:
+  web:
+    build: ./client
+    ports:
+      - "3000:3000"
+  backend:
+    build: ./backend
+    ports:
+      - 127.0.0.1:8800:8800
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: andreas
+      MYSQL_PASSWORD: andreaspassword
+      MYSQL_DB: taskcontroller
+      
+  mysql:
+    image: mariadb
+    volumes:
+      - todo-mysql-data:/var/lib/mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: secret
+      MARIADB_DATABASE: taskcontroller
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    
+volumes:
+  todo-mysql-data:

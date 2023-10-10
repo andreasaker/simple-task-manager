@@ -1,9 +1,6 @@
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
   BrowserRouter,
+  Route,
   Routes,
 } from "react-router-dom";
 import "./App.css";
@@ -14,6 +11,7 @@ import UpdateTask from "./pages/UpdateTask";
 function App() {
   return (
     <div className="App">
+      
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Tasks />} />

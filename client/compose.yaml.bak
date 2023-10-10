@@ -1,0 +1,9 @@
+services:
+  frontend:
+    image: node:18-alpine
+    command: sh -c "npm install && npm start"
+    ports:
+      - 127.0.0.1:3000:3000
+    volumes:
+      - ./:/client
+    working_dir: /client

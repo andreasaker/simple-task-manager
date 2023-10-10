@@ -3,12 +3,13 @@ import mysql from "mysql";
 import cors from "cors";
 
 const app = new express();
-const db = mysql.createConnection({
-  host: "localhost",
-  user: "apiUser",
-  password: "nCGjTolA4V1BSkrbXDuq",
-  database: "taskcontroller",
+const db = mysql.createPool({
+  host: process.env.MYSQL_HOST ? process.env.MYSQL_HOST : "localhost" ,
+  user: process.env.MYSQL_USER ? process.env.MYSQL_USER : "apiUser",
+  password: process.env.MYSQL_PASSWORD ? process.env.MYSQL_PASSWORD : "nCGjTolA4V1BSkrbXDuq",
+  database: process.env.MYSQL_DB ? process.env.MYSQL_DB : "taskcontroller",
 });
+console.log(db)
 
 app.use(express.json());
 app.use(cors());
