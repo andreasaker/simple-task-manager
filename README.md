@@ -10,9 +10,13 @@ Made with create-react-app, express and Mysql.
 
 - In terminal use the command "docker compose up -d" in root folder
 - Go to adminer address and login as root (find password in compose file)
-- Create a user in mysql (dont forget to either use % or ip as server), right now the user is named "andreas"
-- Give the user privlige to edit "taskcontroller" db
-- import the taskcontroller_schema.sql
+- A user named "andreas" should be created 
+- The user "andreas" should have privlige to edit "taskcontroller" db. if it do not, use this:
+    ```
+    CREATE USER 'andreas'@'%' IDENTIFIED BY 'andreaspassword';
+    GRANT ALL PRIVILEGES ON `taskcontroller`.* TO 'andreas'@'%';
+    ```
+- import the taskcontroller_schema.sql, located in "backend" folder
 - Now it should work
 
 

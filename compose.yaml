@@ -20,6 +20,8 @@ services:
     environment:
       MARIADB_ROOT_PASSWORD: secret
       MARIADB_DATABASE: taskcontroller
+      MARIADB_USER: andreas
+      MARIADB_PASSWORD: andreaspassword
   adminer:
     image: adminer
     restart: always
@@ -28,3 +30,6 @@ services:
     
 volumes:
   todo-mysql-data:
+
+
+  
